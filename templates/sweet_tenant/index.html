@@ -1,0 +1,27 @@
+{% extends 'sweet_tenant/tenant_base.html' %}
+
+{% block title %}
+{{request.tenant.name}}
+{% endblock title %}
+
+
+{% block content %}
+<h1>Tenant index {{request.tenant.name}}</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Sweet Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sweet in sweets %}
+        <tr>
+            <td>{{sweet.name}}</td>
+            <td>{{sweet.sweet_type.name}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
